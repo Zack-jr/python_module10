@@ -5,7 +5,7 @@ def spell_combiner(spell1: callable, spell2: callable) -> callable:
 
 def power_amplifier(base_spell: callable, multiplier: int) -> callable:
 
-    def multiply():
+    def multiply() -> int:
         res = base_spell()
         res *= multiplier
 
@@ -16,7 +16,7 @@ def power_amplifier(base_spell: callable, multiplier: int) -> callable:
 
 def conditional_caster(condition: callable, spell: callable) -> callable:
 
-    def trigger(target):
+    def trigger(target) -> str:
         if condition(target) is True:
             res = spell(target)
             return res
@@ -38,15 +38,15 @@ def spell_sequence(spells: list[callable]) -> callable:
 
 
 # example functions
-def fireball(target):
+def fireball(target) -> str:
     return f"Fireball hits {target}"
 
 
-def heal(target):
+def heal(target) -> str:
     return f"Heals {target}"
 
 
-def base_spell():
+def base_spell() -> int:
     return 10
 
 

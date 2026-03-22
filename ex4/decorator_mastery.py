@@ -5,7 +5,7 @@ from functools import wraps
 def spell_timer(func: callable) -> callable:
 
     @wraps(func)
-    def wrapper():
+    def wrapper() -> any:
         print(f"Casting {func.__name__}...")
         t1 = perf_counter()
         res = func()
@@ -18,9 +18,9 @@ def spell_timer(func: callable) -> callable:
 
 def power_validator(min_power: int) -> callable:
 
-    def decorator(func: callable):
+    def decorator(func: callable) -> callable:
         @wraps(func)
-        def wrapper(*args, **kwargs):
+        def wrapper(*args, **kwargs) -> any:
 
             power = kwargs.get('power') if 'power' in kwargs else args[-1]
             if power >= min_power:
@@ -34,10 +34,10 @@ def power_validator(min_power: int) -> callable:
 
 def retry_spell(max_attempts: int) -> callable:
 
-    def decorator(func: callable):
+    def decorator(func: callable) -> callable:
 
         @wraps(func)
-        def wrapper():
+        def wrapper() -> any:
 
             failed_attempts = 0
             while failed_attempts < max_attempts:
@@ -56,19 +56,19 @@ def retry_spell(max_attempts: int) -> callable:
 
 
 # start of example functions ---
-def fireball():
+def fireball() -> str:
 
     sleep(0.101)
     return "Fireball cast!"
 
 
 @power_validator(50)
-def cast_meteor(power: int):
+def cast_meteor() -> str:
     return "Meteor Cast!"
 
 
 @retry_spell(5)
-def provoke_error():
+def provoke_error() -> float:
     return 1 / 0
 
 # end of example functions ---

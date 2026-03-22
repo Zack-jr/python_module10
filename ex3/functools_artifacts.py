@@ -46,19 +46,19 @@ def memorized_fibonacci(n: int) -> int:
 def spell_dispatcher() -> callable:
 
     @singledispatch
-    def dispatcher(value: any):
+    def dispatcher(value: any) -> str:
         return "Unknown spell type"
 
     @dispatcher.register
-    def _(value: int):
+    def _(value: int) -> str:
         return f"Damage spell with power {value}"
 
     @dispatcher.register
-    def _(value: str):
+    def _(value: str) -> str:
         return f"{value} enchantment"
 
     @dispatcher.register
-    def _(value: list):
+    def _(value: list) -> str:
         return f"{', '.join(v.capitalize() for v in value)}"
 
     return dispatcher

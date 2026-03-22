@@ -14,7 +14,7 @@ def mage_counter() -> callable:
 
 def spell_accumulator(initial_power: int) -> callable:
 
-    def acc():
+    def acc() -> int:
         nonlocal initial_power
         initial_power += 1
         return initial_power
@@ -35,10 +35,10 @@ def memory_vault() -> dict[str, callable]:
 
     keys_values = {}
 
-    def store(key, value):
+    def store(key, value) -> None:
         keys_values.update({key: value})
 
-    def recall(key):
+    def recall(key) -> any:
         if key in keys_values.keys():
             return keys_values[key]
         else:
