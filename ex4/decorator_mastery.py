@@ -63,8 +63,8 @@ def fireball() -> str:
 
 
 @power_validator(50)
-def cast_meteor() -> str:
-    return "Meteor Cast!"
+def cast_meteor(power: int) -> str:
+    return f"Meteor Cast! with {power} power"
 
 
 @retry_spell(5)
@@ -79,7 +79,7 @@ class MagicGuild:
     @staticmethod
     def validate_mage_name(name: str) -> bool:
 
-        if len(name) > 3 and any(c.isalpha() and c.isspace() for c in name):
+        if len(name) > 3 and all(c.isalpha() or c.isspace() for c in name):
             return True
         else:
             return False

@@ -25,7 +25,6 @@ def spell_accumulator(initial_power: int) -> callable:
 def enchantment_factory(enchantment_type: str) -> callable:
 
     def ench(item: str):
-        nonlocal enchantment_type
         return f"{enchantment_type} {item}"
 
     return ench
@@ -71,7 +70,7 @@ def main():
     print("\nTesting memory vault...")
     mem_process = memory_vault()
     mem_process["store"]("mastercard", "6414132")
-    print(f"Recall: {mem_process["recall"]("mastercard")}")
+    print(f"Recall: {mem_process['recall']('mastercard')}")
     print(mem_process["recall"]("visa"))
 
 

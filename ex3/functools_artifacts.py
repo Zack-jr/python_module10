@@ -68,10 +68,10 @@ def main():
 
     print("\nTesting spell reducer...")
     numbers = [10, 20, 30, 40]
-    print(f"Sum: {spell_reducer(numbers, "add")}")
-    print(f"Product: {spell_reducer(numbers, "multiply")}")
-    print(f"Max: {spell_reducer(numbers, "max")}")
-    print(f"Min: {spell_reducer(numbers, "min")}")
+    print(f"Sum: {spell_reducer(numbers, 'add')}")
+    print(f"Product: {spell_reducer(numbers, 'multiply')}")
+    print(f"Max: {spell_reducer(numbers, 'max')}")
+    print(f"Min: {spell_reducer(numbers, 'min')}")
 
     print("\nTesting partial enchanter...")
     spellbook = partial_enchanter(base_enchantment)
@@ -87,7 +87,7 @@ def main():
     words = ["apple", "samsung", "google"]
     spell = spell_dispatcher()
     print(f"Integer: {spell(50)}")
-    print(f"String: {spell("Fire")}")
+    print(f"String: {spell('Fire')}")
     print(f"Multi-cast: {spell(words)}")
 
 
